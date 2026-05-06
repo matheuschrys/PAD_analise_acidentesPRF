@@ -1,0 +1,16 @@
+coluna,tipo_esperado,tipo_encontrado,status
+id,Int64,Int64,ok
+dia_semana,category,category,ok
+uf,category,category,ok
+br,string,string,ok
+municipio,category,category,ok
+causa_acidente,category,category,ok
+tipo_acidente,category,category,ok
+fase_dia,category,category,ok
+condicao_metereologica,category,category,ok
+tipo_pista,category,category,ok
+tracado_via,category,category,ok
+ilesos,Int16,Int16,ok
+feridos_leves,Int16,Int16,ok
+feridos_graves,Int16,Int16,ok
+mortos,Int8,Int8,ok

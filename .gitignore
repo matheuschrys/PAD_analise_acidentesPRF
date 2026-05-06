@@ -1,0 +1,45 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Virtual environments and local configuration
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+!.env.example
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors and operating system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local assistant/tooling state
+.agents/
+.codex/
+
+# Data artifacts
+data/raw/*.csv
+data/raw/*.zip
+data/raw/*.gz
+data/raw/*.bz2
+data/raw/*.xz
+data/raw/*.7z
+data/interim/*
+!data/interim/README.md
+data/processed/*
+!data/processed/README.md

@@ -1,0 +1,7 @@
+coluna,regra,valores_invalidos
+ilesos,valor >= 0,0
+feridos_leves,valor >= 0,0
+feridos_graves,valor >= 0,0
+mortos,valor >= 0,0
+data_inversa,data valida,0
+horario,hora valida no formato HH:MM:SS,0

@@ -1,0 +1,8 @@
+pandas
+pyarrow
+polars
+dask[distributed]
+matplotlib
+seaborn
+psutil
+jupyter
