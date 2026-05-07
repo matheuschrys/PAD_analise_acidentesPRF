@@ -8,6 +8,10 @@ O notebook oficial da entrega esta em:
 
 `notebooks/acidentes_prf_trabalho_part1.ipynb`
 
+Para uma explicacao detalhada do codigo, com trechos comentados e analogias, consulte:
+
+`README_CODIGO.md`
+
 ## Fonte dos dados
 
 A base usada vem dos Dados Abertos da Policia Rodoviaria Federal (PRF), base BAT - Boletim de Acidente de Transito. Foram usados os documentos CSV de Acidentes de 2017 a 2025, agrupados por pessoa, com todas as causas e tipos de acidentes.
