@@ -12,6 +12,7 @@ SCHEMA_PANDAS = {
     "uf": "category",
     "br": "string",
     "municipio": "category",
+    "causa_principal": "category",
     "causa_acidente": "category",
     "tipo_acidente": "category",
     "fase_dia": "category",
