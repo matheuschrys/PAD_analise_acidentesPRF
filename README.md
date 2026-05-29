@@ -72,6 +72,8 @@ O notebook gera relatorios de validacao em `reports/`:
 - `resumo_benchmark_bibliotecas.csv` e `vencedores_benchmark_por_volume.csv`, com o resumo dos tempos entre Pandas, Polars, PyArrow e Dask local.
 - `ANALISE_CAUSAS_ACIDENTES_PRF.md`, com a verificacao do dicionario da PRF e a forma recomendada de analisar `causa_acidente` e `causa_principal`.
 - `acidentes_embriaguez_prf_resumo_oficial.csv` e `ACIDENTES_EMBRIAGUEZ_PRF.md`, com os dados oficiais encontrados sobre sinistros relacionados a alcool/embriaguez e a consulta sugerida para reproduzir no dataset local.
+- `FILTROS_SEMESTRE_TRIMESTRE_PRF.md`, com exemplos para criar filtros por trimestre e semestre usando `data_inversa`.
+- `resumo_trimestral.csv` e `resumo_semestral.csv`, gerados pelo notebook para comparar acidentes unicos e vitimas por periodo.
 
 ## Notebook principal
 

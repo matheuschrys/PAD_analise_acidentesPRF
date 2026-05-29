@@ -41,7 +41,7 @@ Pontos corrigidos na versao atual:
 | Comparacao com Dask | Atendido | O notebook executa benchmark com Dask em cluster local (`LocalCluster`) e compara os tempos com Pandas, Polars e PyArrow. |
 | Processamento paralelo com 1, 2 e 3 maquinas | Ignorado | Item desconsiderado conforme orientacao, pois o processamento paralelo distribuido em maquinas fisicas nao foi realizado por limitacao externa. |
 | Notebook com resultados visiveis | Atendido | As celulas principais possuem `execution_count` e saidas de texto/graficos. |
-| Referencias e fontes | Atendido | O notebook possui secao de referencias, documentacoes das bibliotecas e observacao sobre uso de IA. |
+| Referencias e fontes | Atendido | O notebook possui secao de referencias e documentacoes das bibliotecas utilizadas. |
 
 ## Pontos Fortes
 
