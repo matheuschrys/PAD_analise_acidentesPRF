@@ -1,0 +1,5 @@
+Biblioteca,tempo_medio_s,menor_tempo_s,maior_tempo_s
+PyArrow,0.0645625,0.027,0.298
+Polars,0.07273750000000001,0.0195,0.2811
+Dask,0.4128625,0.2616,1.328
+Pandas,0.7374875,0.719,0.7673

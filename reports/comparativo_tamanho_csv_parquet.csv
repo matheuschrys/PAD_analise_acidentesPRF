@@ -1,0 +1,10 @@
+ano,arquivo_csv,arquivo_parquet,csv_bytes,parquet_bytes,csv_tamanho,parquet_tamanho,csv_mb,parquet_mb,reducao_percentual
+2017,acidentes2017_todas_causas_tipos.csv,acidentes_2017.parquet,124909840,3673528,119.12 MB,3.50 MB,119.12,3.5,97.06
+2018,acidentes2018_todas_causas_tipos.csv,acidentes_2018.parquet,117269111,3098010,111.84 MB,2.95 MB,111.84,2.95,97.36
+2019,acidentes2019_todas_causas_tipos.csv,acidentes_2019.parquet,125404559,3061329,119.60 MB,2.92 MB,119.6,2.92,97.56
+2020,acidentes2020_todas_causas_tipos.csv,acidentes_2020.parquet,149275638,3145076,142.36 MB,3.00 MB,142.36,3.0,97.89
+2021,acidentes2021_todas_causas_tipos.csv,acidentes_2021.parquet,170735605,3367418,162.83 MB,3.21 MB,162.83,3.21,98.03
+2022,acidentes2022_todas_causas_tipos.csv,acidentes_2022.parquet,191786699,3516889,182.90 MB,3.35 MB,182.9,3.35,98.17
+2023,acidentes2023_todas_causas_tipos.csv,acidentes_2023.parquet,216058400,3756200,206.05 MB,3.58 MB,206.05,3.58,98.26
+2024,acidentes2024_todas_causas_tipos.csv,acidentes_2024.parquet,233085036,4054904,222.29 MB,3.87 MB,222.29,3.87,98.26
+2025,acidentes2025_todas_causas_tipos.csv,acidentes_2025.parquet,223019483,3971370,212.69 MB,3.79 MB,212.69,3.79,98.22
