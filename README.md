@@ -68,6 +68,10 @@ O notebook gera relatorios de validacao em `reports/`:
 - `validacao_tipos.csv`
 - `validacao_nulos.csv`
 - `validacao_invalidos.csv`
+- `comparativo_tamanho_csv_parquet.csv`, com o tamanho original dos CSVs, o tamanho dos Parquets gerados e a reducao percentual.
+- `resumo_benchmark_bibliotecas.csv` e `vencedores_benchmark_por_volume.csv`, com o resumo dos tempos entre Pandas, Polars, PyArrow e Dask local.
+- `ANALISE_CAUSAS_ACIDENTES_PRF.md`, com a verificacao do dicionario da PRF e a forma recomendada de analisar `causa_acidente` e `causa_principal`.
+- `acidentes_embriaguez_prf_resumo_oficial.csv` e `ACIDENTES_EMBRIAGUEZ_PRF.md`, com os dados oficiais encontrados sobre sinistros relacionados a alcool/embriaguez e a consulta sugerida para reproduzir no dataset local.
 
 ## Notebook principal
 

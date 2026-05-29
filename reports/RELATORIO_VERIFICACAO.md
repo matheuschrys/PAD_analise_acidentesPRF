@@ -15,6 +15,7 @@ Pontos corrigidos na versao atual:
 - O caminho absoluto dos CSVs foi substituido por caminhos relativos da estrutura do projeto.
 - As referencias e fontes foram adicionadas ao notebook.
 - Os graficos passaram a ser salvos em `reports/`.
+- A conversao para Parquet passou a gerar comparacao de tamanho entre CSV e Parquet, incluindo total em MB e percentual de reducao.
 
 ## Verificacao por Requisito
 
@@ -22,6 +23,7 @@ Pontos corrigidos na versao atual:
 |---|---:|---|
 | Definicao de schemas | Atendido | O schema foi centralizado em `src/etl/schema.py` e usado pelo notebook. |
 | Validacao dos schemas | Atendido | O notebook gera relatorios formais de colunas ausentes, tipos, nulos e valores invalidos em `reports/`. |
+| Conversao dos dados brutos para Parquet | Atendido | O notebook converte os CSVs anuais para Parquet e salva uma comparacao de tamanho em `reports/comparativo_tamanho_csv_parquet.csv`. |
 | Operacoes em grandes volumes | Atendido | O notebook processa volumes crescentes de 1 dia ate o limite maximo do dataset. O maior volume registrado foi de 4.069.582 linhas. |
 | Incremento por horas | Atendido | A coluna `horario` foi incorporada ao fluxo e combinada com `data_inversa` para criar `data_hora`. O corte `2.1 - Horas` usa a janela inicial do dataset. |
 | Incremento por dias | Atendido | Ha corte para `2017-01-01`, com 1.421 linhas processadas. |
