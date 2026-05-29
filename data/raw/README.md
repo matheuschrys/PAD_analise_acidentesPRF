@@ -2,6 +2,10 @@
 
 Esta pasta deve receber os CSVs originais usados no trabalho.
 
+Fonte dos dados: Dados Abertos da Policia Rodoviaria Federal (PRF), base BAT - Boletim de Acidente de Transito, documentos CSV de Acidentes agrupados por pessoa, com todas as causas e tipos de acidentes.
+
+https://www.gov.br/prf/pt-br/acesso-a-informacao/dados-abertos/dados-abertos-da-prf
+
 Regra de uso:
 
 - Nao editar estes arquivos diretamente.

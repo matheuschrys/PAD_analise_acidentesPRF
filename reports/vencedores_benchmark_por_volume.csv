@@ -1,0 +1,9 @@
+Volume,Biblioteca,Tempo (s)
+2.1 - Horas,PyArrow,0.0402
+2.2 - Dias,PyArrow,0.0288
+2.3 - Semanas,PyArrow,0.027
+2.4 - Meses,Polars,0.0201
+2.5 - Trimestres,Polars,0.0195
+2.6 - Semestres,Polars,0.0224
+2.7 - Anos,PyArrow,0.0312
+2.8 - Limite Maximo,Polars,0.097
