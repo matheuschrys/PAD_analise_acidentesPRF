@@ -15,6 +15,7 @@ Pontos corrigidos na versao atual:
 - O caminho absoluto dos CSVs foi substituido por caminhos relativos da estrutura do projeto.
 - As referencias e fontes foram adicionadas ao notebook.
 - Os graficos passaram a ser salvos em `reports/`.
+- A conversao para Parquet passou a gerar comparacao de tamanho entre CSV e Parquet, incluindo total em MB e percentual de reducao.
 
 ## Verificacao por Requisito
 
@@ -22,6 +23,7 @@ Pontos corrigidos na versao atual:
 |---|---:|---|
 | Definicao de schemas | Atendido | O schema foi centralizado em `src/etl/schema.py` e usado pelo notebook. |
 | Validacao dos schemas | Atendido | O notebook gera relatorios formais de colunas ausentes, tipos, nulos e valores invalidos em `reports/`. |
+| Conversao dos dados brutos para Parquet | Atendido | O notebook converte os CSVs anuais para Parquet e salva uma comparacao de tamanho em `reports/comparativo_tamanho_csv_parquet.csv`. |
 | Operacoes em grandes volumes | Atendido | O notebook processa volumes crescentes de 1 dia ate o limite maximo do dataset. O maior volume registrado foi de 4.069.582 linhas. |
 | Incremento por horas | Atendido | A coluna `horario` foi incorporada ao fluxo e combinada com `data_inversa` para criar `data_hora`. O corte `2.1 - Horas` usa a janela inicial do dataset. |
 | Incremento por dias | Atendido | Ha corte para `2017-01-01`, com 1.421 linhas processadas. |
@@ -39,7 +41,7 @@ Pontos corrigidos na versao atual:
 | Comparacao com Dask | Atendido | O notebook executa benchmark com Dask em cluster local (`LocalCluster`) e compara os tempos com Pandas, Polars e PyArrow. |
 | Processamento paralelo com 1, 2 e 3 maquinas | Ignorado | Item desconsiderado conforme orientacao, pois o processamento paralelo distribuido em maquinas fisicas nao foi realizado por limitacao externa. |
 | Notebook com resultados visiveis | Atendido | As celulas principais possuem `execution_count` e saidas de texto/graficos. |
-| Referencias e fontes | Atendido | O notebook possui secao de referencias, documentacoes das bibliotecas e observacao sobre uso de IA. |
+| Referencias e fontes | Atendido | O notebook possui secao de referencias e documentacoes das bibliotecas utilizadas. |
 
 ## Pontos Fortes
 
