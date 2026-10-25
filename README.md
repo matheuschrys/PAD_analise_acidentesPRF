@@ -1,86 +1,105 @@
-# PAD - Analise de Acidentes PRF
+# Análise de Acidentes da PRF | Python e Power BI
 
-**Autores:** Chrysthyan Matheus e Eric Gabriel
+**Autores do projeto de Programação para Análise de Dados:** Chrysthyan Matheus e Eric Gabriel.
 
-Projeto desenvolvido para a disciplina de Programacao para Analise de Dados. O trabalho analisa dados de acidentes em rodovias federais, com foco em definicao de schemas, preparacao em formato Parquet, consultas em grandes volumes, geracao de graficos e comparacao de desempenho entre bibliotecas Python.
+Projeto acadêmico de análise de acidentes em rodovias federais brasileiras com dados da Polícia Rodoviária Federal (PRF). O repositório reúne um fluxo de **preparação, validação, processamento e análise de dados em Python**, além de um **relatório interativo em Power BI** para exploração visual dos indicadores de acidentes, vítimas e fatores associados.
 
-## Escopo
+## Visão geral
 
-O projeto cobre:
+| Componente | Finalidade | Tecnologias principais |
+| --- | --- | --- |
+| Preparação e validação | Aplicar schemas, verificar colunas, tipos, nulos e valores inválidos | Python, Pandas, PyArrow |
+| Armazenamento e análise | Converter CSV em Parquet, analisar volumes e intervalos temporais | Parquet, Pandas, Polars, PyArrow |
+| Benchmark | Comparar o desempenho das bibliotecas em processamento local | Pandas, Polars, PyArrow, Dask LocalCluster |
+| Dashboard | Explorar indicadores geográficos, temporais e de gravidade | Microsoft Power BI |
 
-- Definicao e aplicacao de schema sobre arquivos CSV.
-- Validacao formal de colunas, tipos, nulos e valores invalidos.
-- Conversao dos dados brutos para Parquet.
-- Processamento incremental por janelas temporais, incluindo horas.
-- Consultas com agrupamentos e graficos.
-- Comparacao de desempenho com Pandas, PyArrow, Polars e Dask local.
+O processamento **distribuído em múltiplas máquinas físicas não faz parte da entrega** documentada atualmente. A análise de desempenho com Dask utiliza `LocalCluster`, em execução local.
 
-O processamento paralelo distribuido com Dask em 1, 2 e 3 maquinas fisicas foi desconsiderado por limitacao externa informada.
+## Dashboard Power BI
 
-## Estrutura
+**Download do PBIX:** [analise_acidentes_prf.pbix](https://github.com/matheuschrys/PAD_analise_acidentesPRF/releases/download/powerbi-dashboard-2026-10-25/analise_acidentes_prf.pbix) (125,9 MB, disponível nos ativos da release).
+
+O relatório disponibiliza **15 páginas**, organizadas em análises de:
+
+- **Indicadores gerais:** acidentes, mortos, feridos, envolvidos e índice de letalidade.
+- **Geografia e rodovias:** locais com acidentes fatais, letalidade por UF, trechos e densidade de acidentes por rodovia.
+- **Tempo e evolução:** séries mensais, distribuição por fase do dia e dia da semana, variação anual de acidentes fatais e recortes trimestrais.
+- **Causas e infraestrutura:** causas, tipos de acidente, características da pista e gravidade associada.
+- **Veículos e pessoas envolvidas:** tipo e marca de veículo, faixa etária, sexo, perfil dos envolvidos e severidade.
+
+São utilizados gráficos, mapas, tabelas, matrizes, indicadores e filtros interativos conforme a página. Os dados e as medidas já incorporados ao arquivo podem ser explorados ao abri-lo no **Power BI Desktop**.
+
+> **Importante:** o arquivo `.pbix` está anexado à [release do dashboard](https://github.com/matheuschrys/PAD_analise_acidentesPRF/releases/tag/powerbi-dashboard-2026-10-25), separado do código-fonte; ele não vem ao clonar o repositório. A visualização do dashboard não é executada diretamente na página do GitHub. A atualização dos dados pode exigir ajustes nos caminhos e nas credenciais da fonte no Power BI Desktop.
+
+Veja [a documentação do dashboard](powerbi/README.md) para conhecer as páginas e abrir o relatório.
+
+## Escopo da análise em Python
+
+- Definição e aplicação de schemas em arquivos CSV.
+- Validação de colunas, tipos, campos nulos e valores inválidos.
+- Conversão de CSV para Parquet.
+- Processamento incremental por janelas temporais, com análise por horas.
+- Consultas, agregações e geração de gráficos.
+- Comparação de desempenho entre Pandas, PyArrow, Polars e Dask local.
+
+## Estrutura do repositório
 
 ```text
-pad_acidentes_prf/
+PAD_analise_acidentesPRF/
 ├── data/
-│   ├── raw/          # CSVs originais e checksums
-│   ├── interim/      # espaco para dados intermediarios documentados
-│   └── processed/    # dados finais gerados pelo notebook, como Parquet
+│   ├── raw/                       # CSVs de origem e checksums
+│   ├── interim/                   # Dados intermediários
+│   └── processed/                 # Dados derivados, como Parquet
 ├── notebooks/
 │   └── acidentes_prf_trabalho_part1.ipynb
-├── reports/
-│   ├── RELATORIO_VERIFICACAO.md
-│   ├── HISTORICO_REFATORACAO.md
-│   └── requisitos_trabalho.pdf
-├── src/
-│   ├── etl/
-│   └── utils/
-├── tests/
+├── powerbi/
+│   └── README.md                  # Descrição e guia do dashboard
+├── reports/                       # Relatórios técnicos e verificações
+├── src/                           # Código de ETL e utilitários
+├── tests/                         # Testes do projeto
+├── .gitignore
 ├── README.md
+├── README_CODIGO.md
 └── requirements.txt
 ```
 
-## Como executar
+## Como executar o projeto em Python
 
-1. Abra a pasta `pad_acidentes_prf/` como raiz do projeto.
-2. Instale as dependencias listadas em `requirements.txt`.
-3. Abra o notebook `notebooks/acidentes_prf_trabalho_part1.ipynb`.
-4. Execute as celulas em ordem.
+1. Clone o repositório e abra sua pasta como raiz do projeto.
+2. Instale as dependências com `pip install -r requirements.txt` em um ambiente Python compatível.
+3. Disponibilize os CSVs originais em `data/raw/`.
+4. Abra `notebooks/acidentes_prf_trabalho_part1.ipynb`.
+5. Execute as células na ordem indicada pelo notebook.
 
-O notebook detecta se esta sendo executado a partir da raiz do projeto ou da pasta `notebooks/` e ajusta os caminhos para:
+O notebook aceita execução a partir da raiz do repositório ou da pasta `notebooks/` e utiliza os seguintes diretórios:
 
-- `data/raw/`: entrada dos CSVs.
-- `data/processed/dados_otimizados/`: saida dos Parquets.
-- `reports/`: saida dos graficos e relatorios de validacao.
+- `data/raw/`: entrada dos arquivos CSV.
+- `data/processed/dados_otimizados/`: saída de arquivos Parquet.
+- `reports/`: saída de gráficos, verificações e resultados.
 
-## Dados
+Os CSVs originais são tratados como imutáveis. Por seu tamanho, **não são versionados no Git**; `data/raw/CHECKSUMS.sha256` documenta seus hashes SHA-256. Os Parquets gerados também não são versionados, pois podem ser recriados pelo notebook.
 
-Os CSVs originais devem ficar em `data/raw/` e devem ser tratados como imutaveis. Por serem arquivos grandes, eles nao sao versionados no Git; o arquivo `data/raw/CHECKSUMS.sha256` registra os checksums SHA-256 para verificar integridade dos dados quando forem copiados ou baixados novamente.
+Durante a execução, a coluna `data_hora` é construída a partir de `data_inversa` e `horario`, permitindo análises na granularidade de horas.
 
-Os Parquets em `data/processed/dados_otimizados/` tambem nao sao versionados, pois sao derivados dos CSVs e podem ser recriados executando o notebook.
+## Saídas e documentação técnica
 
-Durante a execucao, o notebook cria a coluna `data_hora` a partir de `data_inversa` e `horario`, permitindo analises com granularidade por horas.
+Os resultados do notebook podem incluir, em `reports/`:
 
-## Validacao
+- `validacao_colunas_ausentes.csv`, `validacao_tipos.csv`, `validacao_nulos.csv` e `validacao_invalidos.csv`.
+- `comparativo_tamanho_csv_parquet.csv`, com os tamanhos e a redução percentual.
+- `resumo_benchmark_bibliotecas.csv` e `vencedores_benchmark_por_volume.csv`, comparando Pandas, Polars, PyArrow e Dask local.
+- `ANALISE_CAUSAS_ACIDENTES_PRF.md` e `ACIDENTES_EMBRIAGUEZ_PRF.md`, com orientações e verificações das análises respectivas.
+- `FILTROS_SEMESTRE_TRIMESTRE_PRF.md`, com filtros por trimestre e semestre.
+- `resumo_trimestral.csv` e `resumo_semestral.csv`, quando gerados pelo notebook.
 
-O notebook gera relatorios de validacao em `reports/`:
+O notebook `notebooks/acidentes_prf_trabalho_part1.ipynb` é a referência principal para a entrega de Programação para Análise de Dados. Veja também [`README_CODIGO.md`](README_CODIGO.md) e, quando disponível, `reports/HISTORICO_REFATORACAO.md`.
 
-- `validacao_colunas_ausentes.csv`
-- `validacao_tipos.csv`
-- `validacao_nulos.csv`
-- `validacao_invalidos.csv`
-- `comparativo_tamanho_csv_parquet.csv`, com o tamanho original dos CSVs, o tamanho dos Parquets gerados e a reducao percentual.
-- `resumo_benchmark_bibliotecas.csv` e `vencedores_benchmark_por_volume.csv`, com o resumo dos tempos entre Pandas, Polars, PyArrow e Dask local.
-- `ANALISE_CAUSAS_ACIDENTES_PRF.md`, com a verificacao do dicionario da PRF e a forma recomendada de analisar `causa_acidente` e `causa_principal`.
-- `acidentes_embriaguez_prf_resumo_oficial.csv` e `ACIDENTES_EMBRIAGUEZ_PRF.md`, com os dados oficiais encontrados sobre sinistros relacionados a alcool/embriaguez e a consulta sugerida para reproduzir no dataset local.
-- `FILTROS_SEMESTRE_TRIMESTRE_PRF.md`, com exemplos para criar filtros por trimestre e semestre usando `data_inversa`.
-- `resumo_trimestral.csv` e `resumo_semestral.csv`, gerados pelo notebook para comparar acidentes unicos e vitimas por periodo.
+## Origem dos dados e observações
 
-## Notebook principal
+A análise tem como tema os dados de acidentes da **Polícia Rodoviária Federal (PRF)**. O portal oficial disponibiliza os conjuntos de dados e sua documentação: [Dados abertos da PRF](https://www.gov.br/prf/pt-br/acesso-a-informacao/dados-abertos/dados-abertos-da-prf).
 
-Use `notebooks/acidentes_prf_trabalho_part1.ipynb` para a entrega/apresentacao oficial.
+Os dados embutidos no `.pbix` são independentes da execução do notebook no momento da abertura do relatório. **Não se deve presumir** que a base, o intervalo de datas ou o fluxo de transformação do dashboard sejam idênticos aos do notebook sem conferir as respectivas fontes no Power BI Desktop.
 
-O historico da reorganizacao do projeto foi preservado em `reports/HISTORICO_REFATORACAO.md`.
+## Ferramentas
 
-## Observacao sobre Dask
-
-A comparacao de desempenho com Dask foi mantida porque o notebook executa benchmark local com `LocalCluster`. Apenas o processamento paralelo distribuido em multiplas maquinas fisicas foi desconsiderado.
+**Python · Jupyter Notebook · Pandas · PyArrow · Polars · Dask · Parquet · Microsoft Power BI**
