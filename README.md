@@ -58,6 +58,7 @@ PAD_analise_acidentesPRF/
 ├── src/                           # Código de ETL e utilitários
 ├── tests/                         # Testes do projeto
 ├── .gitignore
+├── INSTRUCOES_DE_PUBLICACAO.md
 ├── README.md
 ├── README_CODIGO.md
 └── requirements.txt
